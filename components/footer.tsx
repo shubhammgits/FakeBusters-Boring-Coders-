@@ -5,10 +5,10 @@ import Link from "next/link"
 
 const footerLinks = {
   product: [
-    { name: "AI Content Detector", href: "/products" },
-    { name: "Plagiarism Checker", href: "/products" },
-    { name: "API Platform", href: "/products" },
-    { name: "Chrome Extension", href: "/products" },
+    { name: "Image Detector", href: "/products" },
+    { name: "Video Analyzer", href: "/products" },
+    { name: "Metadata Checker", href: "/products" },
+    { name: "Browser Plugin", href: "/products" },
   ],
   company: [
     { name: "About Us", href: "/about" },
@@ -19,14 +19,14 @@ const footerLinks = {
   resources: [
     { name: "Documentation", href: "/docs" },
     { name: "Help Center", href: "/help" },
-    { name: "Status", href: "/status" },
-    { name: "Changelog", href: "/changelog" },
+    { name: "API Guide", href: "/api" },
+    { name: "Digital Literacy", href: "/education" },
   ],
   legal: [
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Terms of Service", href: "/terms" },
     { name: "Cookie Policy", href: "/cookies" },
-    { name: "GDPR", href: "/gdpr" },
+    { name: "GDPR Compliance", href: "/gdpr" },
   ],
 }
 
@@ -47,11 +47,11 @@ export default function Footer() {
               <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
                 <Shield className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold text-white">Copyleaks</span>
+              <span className="text-xl font-bold text-white">FakeBuster</span>
             </Link>
             <p className="text-gray-300 mb-6 max-w-md">
-              Advanced AI-powered content detection and plagiarism checking platform. Protect your content integrity
-              with industry-leading accuracy.
+              Advanced AI-powered deepfake detection platform. Protect yourself from fake images, videos, and
+              manipulated content with industry-leading accuracy.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social) => (
@@ -120,8 +120,8 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">© 2024 Copyleaks. All rights reserved.</p>
-          <p className="text-gray-400 text-sm mt-4 md:mt-0">Built with ❤️ for content integrity</p>
+          <p className="text-gray-400 text-sm">© 2024 FakeBuster. All rights reserved.</p>
+          <p className="text-gray-400 text-sm mt-4 md:mt-0">Built with ❤️ to fight deepfakes</p>
         </div>
       </div>
     </footer>

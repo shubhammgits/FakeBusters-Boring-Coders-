@@ -6,44 +6,49 @@ import { ChevronDown, ChevronUp } from "lucide-react"
 
 const faqs = [
   {
-    question: "How accurate is Copyleaks' AI content detection?",
+    question: "Is FakeBuster free to use?",
     answer:
-      "Our AI content detection achieves 99.12% accuracy across multiple AI models including ChatGPT, GPT-4, Bard, and Claude. We continuously update our detection algorithms to stay ahead of new AI models and techniques.",
+      "Yes! FakeBuster offers a free tier with basic functionality. You can scan up to 10 images per month without logging in. For more features and higher limits, check out our Pro and Enterprise plans.",
   },
   {
-    question: "What types of content can Copyleaks analyze?",
+    question: "Does FakeBuster store my uploaded images or videos?",
     answer:
-      "Copyleaks can analyze text documents, academic papers, articles, source code, and web content. We support over 100 languages and can process various file formats including PDF, DOC, TXT, and more.",
+      "No. We do not store your files. All content is deleted immediately after processing. Your privacy and security are our top priorities.",
   },
   {
-    question: "How does the plagiarism detection work?",
+    question: "How accurate is FakeBuster?",
     answer:
-      "Our plagiarism detection compares your content against billions of web pages, academic databases, and published works. We use advanced algorithms to identify similarities and provide detailed reports with source citations.",
+      "We use state-of-the-art AI models trained on deepfake datasets. While not 100% foolproof, our confidence scoring lets you understand how likely something is fake. Our current accuracy rate is around 95%.",
   },
   {
-    question: "Is my content secure and private?",
+    question: "Can it detect fake news?",
     answer:
-      "Yes, we take privacy seriously. Your content is encrypted during transmission and processing. We don't store your content permanently, and you maintain full ownership of your intellectual property.",
+      "FakeBuster doesn't analyze text content or headlines, but it helps verify whether a photo or video attached to news is manipulated or not. It focuses specifically on visual content authenticity.",
   },
   {
-    question: "Can I integrate Copyleaks with my existing systems?",
+    question: "Can I use this on WhatsApp forwards or social media posts?",
     answer:
-      "We offer comprehensive APIs and integrations with popular platforms like Canvas, Blackboard, Google Classroom, and more. Our developer-friendly API makes custom integrations straightforward.",
+      "Yes! Just download the image/video and upload it to FakeBuster. Our upcoming browser plugin will allow one-click scanning directly on platforms like Facebook and Twitter.",
   },
   {
-    question: "What's included in the free plan?",
+    question: "Is this tool for journalists or everyday users?",
     answer:
-      "Our free plan includes 10 pages per month of AI content detection and basic plagiarism checking. You'll also get access to our Chrome extension and basic reporting features.",
+      "Both! It's designed to be simple for non-tech users but powerful enough for professional use. Whether you're a parent checking WhatsApp forwards or a journalist verifying sources, FakeBuster adapts to your needs.",
   },
   {
-    question: "How quickly do I get results?",
+    question: "Is API access available?",
     answer:
-      "Most scans complete within seconds to a few minutes, depending on the content length and complexity. Our advanced processing infrastructure ensures fast, reliable results even during peak usage.",
+      "Yes, API access is available for Pro and Enterprise users. You can integrate FakeBuster into your systems to verify media at scale. Contact us for custom enterprise solutions.",
   },
   {
-    question: "Do you offer educational discounts?",
+    question: "Can it work offline?",
     answer:
-      "Yes! We offer special pricing for educational institutions, including volume discounts for schools and universities. Contact our sales team for custom educational pricing.",
+      "Currently, FakeBuster requires an internet connection to process using cloud-hosted AI models. An offline version is in our roadmap for future releases.",
+  },
+  {
+    question: "How can I contact support?",
+    answer:
+      "Email us at support@fakebuster.ai or use the contact form on our website. We usually respond within 24 hours.",
   },
 ]
 
@@ -70,7 +75,7 @@ export default function FAQ() {
               Questions
             </span>
           </h2>
-          <p className="text-xl text-gray-300">Everything you need to know about Copyleaks and content detection</p>
+          <p className="text-xl text-gray-300">Everything you need to know about FakeBuster and deepfake detection</p>
         </motion.div>
 
         <div className="space-y-4">

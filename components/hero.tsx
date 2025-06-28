@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowRight, Play, Shield, Zap, Globe } from "lucide-react"
+import { ArrowRight, Play, Shield, Zap, Lock } from "lucide-react"
 import Link from "next/link"
 
 export default function Hero() {
@@ -25,20 +25,19 @@ export default function Hero() {
         >
           <div className="inline-flex items-center px-4 py-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full text-sm text-gray-300 mb-8">
             <Shield className="w-4 h-4 mr-2 text-blue-400" />
-            Trusted by 15M+ users worldwide
+            Trusted by 100K+ users worldwide
           </div>
 
           <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
-            Detect AI Content &{" "}
+            Your AI Shield Against{" "}
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Plagiarism
-            </span>{" "}
-            with 99.12% Accuracy
+              Deepfakes
+            </span>
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
-            Protect your content integrity with our advanced AI-powered detection platform. Trusted by educators,
-            publishers, and enterprises worldwide.
+            Detect fake images and videos instantly — powered by real AI. Protect yourself from deepfakes, scams, and
+            manipulated content with advanced detection technology.
           </p>
         </motion.div>
 
@@ -52,7 +51,7 @@ export default function Hero() {
             href="/signup"
             className="group bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl flex items-center"
           >
-            Get Started Free
+            Try FakeBuster Free
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
           </Link>
 
@@ -76,14 +75,14 @@ export default function Hero() {
 
           <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:scale-105">
             <Shield className="w-8 h-8 text-purple-400 mb-4 mx-auto" />
-            <h3 className="text-xl font-bold text-white mb-2">99.12% Accurate</h3>
-            <p className="text-gray-300">Industry-leading detection accuracy</p>
+            <h3 className="text-xl font-bold text-white mb-2">95% Accurate</h3>
+            <p className="text-gray-300">Advanced AI-powered detection</p>
           </div>
 
           <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:scale-105">
-            <Globe className="w-8 h-8 text-green-400 mb-4 mx-auto" />
-            <h3 className="text-xl font-bold text-white mb-2">100+ Languages</h3>
-            <p className="text-gray-300">Multi-language support worldwide</p>
+            <Lock className="w-8 h-8 text-green-400 mb-4 mx-auto" />
+            <h3 className="text-xl font-bold text-white mb-2">Privacy First</h3>
+            <p className="text-gray-300">Your files are never stored</p>
           </div>
         </motion.div>
       </div>
