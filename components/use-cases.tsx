@@ -1,73 +1,56 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Users, Newspaper, Star, Shield, GraduationCap, Palette } from "lucide-react"
+import { Users, Newspaper, Shield, GraduationCap, MessageSquare, Building } from "lucide-react"
 
 const useCases = [
   {
     icon: Users,
     title: "Parents & Elders",
-    description:
-      "Protect your family from WhatsApp scams and fake content. Verify suspicious images and videos before sharing.",
-    benefits: ["WhatsApp scam detection", "Family photo verification", "Social media safety", "Easy-to-use interface"],
+    description: "Protect your family from WhatsApp scams and fake viral videos targeting vulnerable users",
+    example: "Verify suspicious videos before sharing with family groups",
     color: "from-blue-500 to-cyan-500",
   },
   {
     icon: Newspaper,
-    title: "News/Media Professionals",
-    description: "Ensure editorial integrity and verify the authenticity of images and videos before publication.",
-    benefits: [
-      "Source verification",
-      "Editorial workflow integration",
-      "Breaking news validation",
-      "Professional reporting tools",
-    ],
+    title: "News & Media Professionals",
+    description: "Verify authenticity of user-generated content and breaking news visuals before publication",
+    example: "Check viral videos for authenticity before reporting",
     color: "from-purple-500 to-pink-500",
   },
   {
-    icon: Star,
-    title: "Influencers & Public Figures",
-    description: "Protect your reputation by detecting manipulated content featuring your likeness or brand.",
-    benefits: ["Brand protection", "Reputation management", "Content authenticity", "Social media monitoring"],
+    icon: Shield,
+    title: "Law Enforcement & Legal",
+    description: "Analyze digital evidence and verify multimedia content in legal proceedings and investigations",
+    example: "Verify evidence authenticity in court cases",
     color: "from-green-500 to-emerald-500",
   },
   {
-    icon: Shield,
-    title: "Law Enforcement & Legal Teams",
-    description: "Verify digital evidence and detect manipulated content in legal proceedings and investigations.",
-    benefits: ["Digital evidence verification", "Court-ready reports", "Investigation support", "Forensic analysis"],
+    icon: GraduationCap,
+    title: "Teachers & Students",
+    description: "Verify academic submissions and teach digital literacy to identify manipulated content",
+    example: "Check student project submissions for authenticity",
     color: "from-orange-500 to-red-500",
   },
   {
-    icon: GraduationCap,
-    title: "Teachers/Students",
-    description:
-      "Verify academic submissions and teach digital literacy to identify fake content in educational settings.",
-    benefits: [
-      "Academic integrity checking",
-      "Digital literacy education",
-      "Assignment verification",
-      "Research validation",
-    ],
+    icon: MessageSquare,
+    title: "Social Media Influencers",
+    description: "Protect your reputation by verifying content before sharing and identifying fake content about you",
+    example: "Verify viral content before resharing to followers",
     color: "from-indigo-500 to-purple-500",
   },
   {
-    icon: Palette,
-    title: "Content Creators",
-    description: "Protect your original work and verify the authenticity of content in your creative projects.",
-    benefits: [
-      "Original content protection",
-      "Creative work verification",
-      "Copyright protection",
-      "Content authenticity",
-    ],
+    icon: Building,
+    title: "Enterprise & Organizations",
+    description: "Protect brand reputation and verify user-generated content at scale with API integration",
+    example: "Verify customer-submitted content automatically",
     color: "from-teal-500 to-blue-500",
   },
 ]
 
 export default function UseCases() {
   return (
-    <section className="py-24">
+    <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -77,13 +60,14 @@ export default function UseCases() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6">
-            Who Can Use{" "}
+            Who Can{" "}
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              FakeBuster?
+              Use This?
             </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            From everyday users to professionals, FakeBuster adapts to your specific deepfake detection needs
+            FakeBuster is designed for everyone - from everyday users to professionals who need to verify content
+            authenticity
           </p>
         </motion.div>
 
@@ -105,16 +89,11 @@ export default function UseCases() {
                 </div>
 
                 <h3 className="text-2xl font-bold text-white mb-4">{useCase.title}</h3>
-                <p className="text-gray-300 mb-6 leading-relaxed">{useCase.description}</p>
+                <p className="text-gray-300 mb-4 leading-relaxed">{useCase.description}</p>
 
-                <ul className="space-y-2">
-                  {useCase.benefits.map((benefit, idx) => (
-                    <li key={idx} className="flex items-center text-gray-400">
-                      <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mr-3"></div>
-                      {benefit}
-                    </li>
-                  ))}
-                </ul>
+                <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-lg p-3">
+                  <p className="text-blue-300 text-sm font-medium">Example: {useCase.example}</p>
+                </div>
               </div>
             </motion.div>
           ))}

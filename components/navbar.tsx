@@ -6,16 +6,17 @@ import { Menu, X, Shield } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Products", href: "/products" },
-  { name: "Pricing", href: "/pricing" },
-  { name: "Contact", href: "/contact" },
-]
-
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
+
+  const navItems = [
+    { name: "Home", href: "/" },
+    { name: "Scan Now", href: "/scan" },
+    { name: "Products", href: "/products" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "Contact", href: "/contact" },
+  ]
 
   return (
     <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-black/20 border-b border-white/10">
@@ -23,24 +24,22 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
-                <Shield className="w-5 h-5 text-white" />
-              </div>
+              <Shield className="h-8 w-8 text-blue-400" />
               <span className="text-xl font-bold text-white">FakeBuster</span>
             </Link>
           </div>
 
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              {navigation.map((item) => (
+              {navItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                     pathname === item.href
                       ? "text-blue-400 bg-blue-500/10"
                       : "text-gray-300 hover:text-white hover:bg-white/10"
-                  }`}
+                  } ${item.name === "Scan Now" ? "bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 text-green-400" : ""}`}
                 >
                   {item.name}
                 </Link>
@@ -51,21 +50,24 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-4">
             <Link
               href="/login"
-              className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300"
+              className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
             >
-              Sign In
+              Login
             </Link>
             <Link
               href="/signup"
-              className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105"
+              className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:scale-105"
             >
               Try Free
             </Link>
           </div>
 
           <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-gray-300 hover:text-white p-2">
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-gray-300 hover:text-white focus:outline-none focus:text-white"
+            >
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
@@ -73,42 +75,40 @@ export default function Navbar() {
 
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, y: -10 }}
+          initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          className="md:hidden backdrop-blur-xl bg-black/90 border-b border-white/10"
+          exit={{ opacity: 0, y: -20 }}
+          className="md:hidden bg-black/90 backdrop-blur-xl"
         >
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            {navigation.map((item) => (
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 ${
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                   pathname === item.href
                     ? "text-blue-400 bg-blue-500/10"
                     : "text-gray-300 hover:text-white hover:bg-white/10"
-                }`}
+                } ${item.name === "Scan Now" ? "bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 text-green-400" : ""}`}
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
-            <div className="pt-4 pb-3 border-t border-white/10">
-              <Link
-                href="/login"
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300"
-                onClick={() => setIsOpen(false)}
-              >
-                Sign In
-              </Link>
-              <Link
-                href="/signup"
-                className="block px-3 py-2 mt-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg text-base font-medium transition-all duration-300"
-                onClick={() => setIsOpen(false)}
-              >
-                Try Free
-              </Link>
-            </div>
+            <Link
+              href="/login"
+              className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              onClick={() => setIsOpen(false)}
+            >
+              Login
+            </Link>
+            <Link
+              href="/signup"
+              className="bg-gradient-to-r from-blue-500 to-purple-500 text-white block px-3 py-2 rounded-md text-base font-medium mx-3 text-center"
+              onClick={() => setIsOpen(false)}
+            >
+              Try Free
+            </Link>
           </div>
         </motion.div>
       )}

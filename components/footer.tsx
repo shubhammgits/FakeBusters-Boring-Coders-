@@ -1,127 +1,119 @@
 "use client"
 
-import { Shield, Twitter, Facebook, Linkedin, Github } from "lucide-react"
+import { Shield, Mail, Phone, MapPin } from "lucide-react"
 import Link from "next/link"
-
-const footerLinks = {
-  product: [
-    { name: "Image Detector", href: "/products" },
-    { name: "Video Analyzer", href: "/products" },
-    { name: "Metadata Checker", href: "/products" },
-    { name: "Browser Plugin", href: "/products" },
-  ],
-  company: [
-    { name: "About Us", href: "/about" },
-    { name: "Careers", href: "/careers" },
-    { name: "Press", href: "/press" },
-    { name: "Blog", href: "/blog" },
-  ],
-  resources: [
-    { name: "Documentation", href: "/docs" },
-    { name: "Help Center", href: "/help" },
-    { name: "API Guide", href: "/api" },
-    { name: "Digital Literacy", href: "/education" },
-  ],
-  legal: [
-    { name: "Privacy Policy", href: "/privacy" },
-    { name: "Terms of Service", href: "/terms" },
-    { name: "Cookie Policy", href: "/cookies" },
-    { name: "GDPR Compliance", href: "/gdpr" },
-  ],
-}
-
-const socialLinks = [
-  { name: "Twitter", icon: Twitter, href: "#" },
-  { name: "Facebook", icon: Facebook, href: "#" },
-  { name: "LinkedIn", icon: Linkedin, href: "#" },
-  { name: "GitHub", icon: Github, href: "#" },
-]
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-t from-black to-gray-900 border-t border-white/10">
+    <footer className="bg-black border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
-          <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
-                <Shield className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-bold text-white">FakeBuster</span>
-            </Link>
-            <p className="text-gray-300 mb-6 max-w-md">
-              Advanced AI-powered deepfake detection platform. Protect yourself from fake images, videos, and
-              manipulated content with industry-leading accuracy.
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Brand */}
+          <div className="col-span-1 md:col-span-2">
+            <div className="flex items-center space-x-2 mb-4">
+              <Shield className="h-8 w-8 text-blue-400" />
+              <span className="text-2xl font-bold text-white">FakeBuster</span>
+            </div>
+            <p className="text-gray-400 mb-6 max-w-md">
+              Your AI shield against deepfakes. Protect yourself from manipulated content, scams, and emotional
+              manipulation with advanced AI detection technology.
             </p>
-            <div className="flex space-x-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  className="w-10 h-10 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 hover:scale-110"
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
+            <div className="space-y-2">
+              <div className="flex items-center text-gray-400">
+                <Mail className="w-4 h-4 mr-2" />
+                support@fakebuster.ai
+              </div>
+              <div className="flex items-center text-gray-400">
+                <Phone className="w-4 h-4 mr-2" />
+                +91 (11) 2345-6789
+              </div>
+              <div className="flex items-center text-gray-400">
+                <MapPin className="w-4 h-4 mr-2" />
+                New Delhi, India
+              </div>
             </div>
           </div>
 
+          {/* Products */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Product</h3>
+            <h3 className="text-white font-semibold mb-4">Products</h3>
             <ul className="space-y-2">
-              {footerLinks.product.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-gray-400 hover:text-white transition-colors duration-300">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link href="/products" className="text-gray-400 hover:text-white transition-colors">
+                  Image Detector
+                </Link>
+              </li>
+              <li>
+                <Link href="/products" className="text-gray-400 hover:text-white transition-colors">
+                  Video Analyzer
+                </Link>
+              </li>
+              <li>
+                <Link href="/products" className="text-gray-400 hover:text-white transition-colors">
+                  Metadata Checker
+                </Link>
+              </li>
+              <li>
+                <Link href="/products" className="text-gray-400 hover:text-white transition-colors">
+                  Enterprise API
+                </Link>
+              </li>
+              <li>
+                <Link href="/products" className="text-gray-400 hover:text-white transition-colors">
+                  Browser Plugin
+                </Link>
+              </li>
             </ul>
           </div>
 
+          {/* Company */}
           <div>
             <h3 className="text-white font-semibold mb-4">Company</h3>
             <ul className="space-y-2">
-              {footerLinks.company.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-gray-400 hover:text-white transition-colors duration-300">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-white font-semibold mb-4">Resources</h3>
-            <ul className="space-y-2">
-              {footerLinks.resources.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-gray-400 hover:text-white transition-colors duration-300">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-white font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2">
-              {footerLinks.legal.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-gray-400 hover:text-white transition-colors duration-300">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link href="/pricing" className="text-gray-400 hover:text-white transition-colors">
+                  Pricing
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+                  Blog
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">© 2024 FakeBuster. All rights reserved.</p>
-          <p className="text-gray-400 text-sm mt-4 md:mt-0">Built with ❤️ to fight deepfakes</p>
+          <p className="text-gray-400 text-sm">
+            © 2024 FakeBuster. All rights reserved. Protecting India from deepfakes.
+          </p>
+          <div className="flex space-x-6 mt-4 md:mt-0">
+            <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+              Twitter
+            </Link>
+            <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+              LinkedIn
+            </Link>
+            <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+              GitHub
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
