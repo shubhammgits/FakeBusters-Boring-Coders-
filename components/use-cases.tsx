@@ -1,76 +1,65 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { GraduationCap, Building, FileText, Users, Newspaper, Code } from "lucide-react"
+import { Users, Newspaper, Star, Shield, GraduationCap, Palette } from "lucide-react"
 
 const useCases = [
   {
-    icon: GraduationCap,
-    title: "Educational Institutions",
+    icon: Users,
+    title: "Parents & Elders",
     description:
-      "Maintain academic integrity with comprehensive plagiarism detection for essays, research papers, and assignments.",
-    benefits: [
-      "Student assignment checking",
-      "Research paper verification",
-      "Academic integrity enforcement",
-      "Bulk processing for classes",
-    ],
+      "Protect your family from WhatsApp scams and fake content. Verify suspicious images and videos before sharing.",
+    benefits: ["WhatsApp scam detection", "Family photo verification", "Social media safety", "Easy-to-use interface"],
     color: "from-blue-500 to-cyan-500",
   },
   {
-    icon: Building,
-    title: "Enterprise & Business",
-    description:
-      "Protect your brand and content with AI detection and plagiarism checking for marketing materials and publications.",
+    icon: Newspaper,
+    title: "News/Media Professionals",
+    description: "Ensure editorial integrity and verify the authenticity of images and videos before publication.",
     benefits: [
-      "Content authenticity verification",
-      "Brand protection",
-      "Marketing material checking",
-      "Employee content screening",
+      "Source verification",
+      "Editorial workflow integration",
+      "Breaking news validation",
+      "Professional reporting tools",
     ],
     color: "from-purple-500 to-pink-500",
   },
   {
-    icon: Newspaper,
-    title: "Publishers & Media",
-    description:
-      "Ensure editorial integrity and originality in journalism, publishing, and content creation workflows.",
-    benefits: [
-      "Article originality checking",
-      "Editorial workflow integration",
-      "Source verification",
-      "Content quality assurance",
-    ],
+    icon: Star,
+    title: "Influencers & Public Figures",
+    description: "Protect your reputation by detecting manipulated content featuring your likeness or brand.",
+    benefits: ["Brand protection", "Reputation management", "Content authenticity", "Social media monitoring"],
     color: "from-green-500 to-emerald-500",
   },
   {
-    icon: Code,
-    title: "Software Development",
-    description: "Detect code plagiarism and ensure originality in programming assignments and software projects.",
-    benefits: [
-      "Source code analysis",
-      "Programming assignment checking",
-      "Open source compliance",
-      "Code review automation",
-    ],
+    icon: Shield,
+    title: "Law Enforcement & Legal Teams",
+    description: "Verify digital evidence and detect manipulated content in legal proceedings and investigations.",
+    benefits: ["Digital evidence verification", "Court-ready reports", "Investigation support", "Forensic analysis"],
     color: "from-orange-500 to-red-500",
   },
   {
-    icon: FileText,
-    title: "Legal & Compliance",
-    description: "Maintain document integrity and compliance with legal standards for contracts and legal documents.",
-    benefits: ["Legal document verification", "Compliance checking", "Contract originality", "Regulatory adherence"],
+    icon: GraduationCap,
+    title: "Teachers/Students",
+    description:
+      "Verify academic submissions and teach digital literacy to identify fake content in educational settings.",
+    benefits: [
+      "Academic integrity checking",
+      "Digital literacy education",
+      "Assignment verification",
+      "Research validation",
+    ],
     color: "from-indigo-500 to-purple-500",
   },
   {
-    icon: Users,
+    icon: Palette,
     title: "Content Creators",
-    description: "Protect your creative work and ensure originality in blogs, articles, and digital content.",
+    description: "Protect your original work and verify the authenticity of content in your creative projects.",
     benefits: [
-      "Blog post verification",
-      "Content originality checking",
-      "SEO content protection",
-      "Creative work authentication",
+      "Original content protection",
+      "Creative work verification",
+      "Copyright protection",
+      "Content authenticity",
     ],
     color: "from-teal-500 to-blue-500",
   },
@@ -88,13 +77,13 @@ export default function UseCases() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6">
-            Perfect for{" "}
+            Who Can Use{" "}
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Every Industry
+              FakeBuster?
             </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            From education to enterprise, our platform adapts to your specific content integrity needs
+            From everyday users to professionals, FakeBuster adapts to your specific deepfake detection needs
           </p>
         </motion.div>
 
