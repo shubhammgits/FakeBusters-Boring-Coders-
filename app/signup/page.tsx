@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { motion } from "framer-motion"
-import { Mail, Lock, User, Eye, EyeOff } from "lucide-react"
+import { Shield, Mail, Lock, User, Eye, EyeOff } from "lucide-react"
 import { useState } from "react"
 import Link from "next/link"
 
@@ -18,16 +18,17 @@ export default function SignupPage() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords don't match!")
       return
     }
     setIsLoading(true)
-    // Handle signup
+    // Simulate signup
+    await new Promise((resolve) => setTimeout(resolve, 2000))
     console.log("Signup attempt:", formData)
-    setTimeout(() => setIsLoading(false), 2000)
+    setIsLoading(false)
   }
 
   return (
@@ -36,11 +37,16 @@ export default function SignupPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="w-full max-w-md"
+        className="max-w-md w-full"
       >
         <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-8">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-extrabold text-white mb-2">Join FakeBuster</h1>
+            <div className="flex justify-center mb-4">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center">
+                <Shield className="w-8 h-8 text-white" />
+              </div>
+            </div>
+            <h1 className="text-3xl font-bold text-white mb-2">Join FakeBuster</h1>
             <p className="text-gray-300">Start protecting yourself from deepfakes today</p>
           </div>
 
@@ -48,7 +54,7 @@ export default function SignupPage() {
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
               <div className="relative">
-                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <input
                   type="text"
                   value={formData.name}
@@ -63,7 +69,7 @@ export default function SignupPage() {
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">Email</label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <input
                   type="email"
                   value={formData.email}
@@ -78,7 +84,7 @@ export default function SignupPage() {
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">Password</label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <input
                   type={showPassword ? "text" : "password"}
                   value={formData.password}
@@ -90,7 +96,7 @@ export default function SignupPage() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors duration-300"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
                 >
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
@@ -100,7 +106,7 @@ export default function SignupPage() {
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">Confirm Password</label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <input
                   type={showConfirmPassword ? "text" : "password"}
                   value={formData.confirmPassword}
@@ -112,7 +118,7 @@ export default function SignupPage() {
                 <button
                   type="button"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors duration-300"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
                 >
                   {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
@@ -127,11 +133,11 @@ export default function SignupPage() {
               />
               <span className="ml-2 text-sm text-gray-300">
                 I agree to the{" "}
-                <Link href="/terms" className="text-blue-400 hover:text-blue-300 transition-colors duration-300">
+                <Link href="#" className="text-blue-400 hover:text-blue-300 transition-colors">
                   Terms of Service
                 </Link>{" "}
                 and{" "}
-                <Link href="/privacy" className="text-blue-400 hover:text-blue-300 transition-colors duration-300">
+                <Link href="#" className="text-blue-400 hover:text-blue-300 transition-colors">
                   Privacy Policy
                 </Link>
               </span>
@@ -149,10 +155,7 @@ export default function SignupPage() {
           <div className="mt-8 text-center">
             <p className="text-gray-300">
               Already have an account?{" "}
-              <Link
-                href="/login"
-                className="text-blue-400 hover:text-blue-300 font-medium transition-colors duration-300"
-              >
+              <Link href="/login" className="text-blue-400 hover:text-blue-300 transition-colors font-medium">
                 Sign in
               </Link>
             </p>
