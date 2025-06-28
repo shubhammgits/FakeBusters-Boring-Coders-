@@ -34,38 +34,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Products */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">Products</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/products" className="text-gray-400 hover:text-white transition-colors">
-                  Image Detector
-                </Link>
-              </li>
-              <li>
-                <Link href="/products" className="text-gray-400 hover:text-white transition-colors">
-                  Video Analyzer
-                </Link>
-              </li>
-              <li>
-                <Link href="/products" className="text-gray-400 hover:text-white transition-colors">
-                  Metadata Checker
-                </Link>
-              </li>
-              <li>
-                <Link href="/products" className="text-gray-400 hover:text-white transition-colors">
-                  Enterprise API
-                </Link>
-              </li>
-              <li>
-                <Link href="/products" className="text-gray-400 hover:text-white transition-colors">
-                  Browser Plugin
-                </Link>
-              </li>
-            </ul>
-          </div>
-
           {/* Company */}
           <div>
             <h3 className="text-white font-semibold mb-4">Company</h3>
@@ -101,7 +69,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © 2024 FakeBuster. All rights reserved. Protecting India from deepfakes.
+            © 2025 FakeBuster. All rights reserved. Protecting India from deepfakes by Boring Coders
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="#" className="text-gray-400 hover:text-white transition-colors">

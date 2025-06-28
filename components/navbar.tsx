@@ -13,7 +13,6 @@ export default function Navbar() {
   const navItems = [
     { name: "Home", href: "/" },
     { name: "Scan Now", href: "/scan" },
-    { name: "Products", href: "/products" },
     { name: "Pricing", href: "/pricing" },
     { name: "Contact", href: "/contact" },
   ]
@@ -24,8 +23,8 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
-              <Shield className="h-8 w-8 text-blue-400" />
-              <span className="text-xl font-bold text-white">FakeBuster</span>
+              {/* <Shield className="h-8 w-8 text-blue-400" /> */}
+              <span className="h-8 w-8 text-xl font-bold text-white">FakeBuster</span>
             </Link>
           </div>
 

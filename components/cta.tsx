@@ -52,10 +52,6 @@ export default function CTA() {
               Start Free Trial
               <ArrowRight className="w-5 h-5 ml-2" />
             </button>
-
-            <button className="text-white font-semibold py-4 px-8 rounded-lg border border-white/20 hover:bg-white/10 transition-all duration-300">
-              Watch Demo
-            </button>
           </div>
 
           {/* Email Subscription */}
