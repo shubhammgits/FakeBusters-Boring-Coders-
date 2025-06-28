@@ -8,16 +8,19 @@ import { useState } from "react"
 import Link from "next/link"
 
 export default function LoginPage() {
-  const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   })
+  const [showPassword, setShowPassword] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle login logic here
+    setIsLoading(true)
+    // Handle login
     console.log("Login attempt:", formData)
+    setTimeout(() => setIsLoading(false), 2000)
   }
 
   return (
@@ -28,15 +31,15 @@ export default function LoginPage() {
         transition={{ duration: 0.8 }}
         className="w-full max-w-md"
       >
-        <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-8 shadow-2xl">
+        <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-8">
           <div className="text-center mb-8">
             <h1 className="text-3xl font-extrabold text-white mb-2">Welcome Back</h1>
-            <p className="text-gray-300">Sign in to your account</p>
+            <p className="text-gray-300">Sign in to your FakeBuster account</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+              <label className="block text-sm font-medium text-gray-300 mb-2">Email</label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                 <input
@@ -76,7 +79,7 @@ export default function LoginPage() {
               <label className="flex items-center">
                 <input
                   type="checkbox"
-                  className="w-4 h-4 text-blue-500 bg-white/5 border border-white/10 rounded focus:ring-blue-500 focus:ring-2"
+                  className="w-4 h-4 text-blue-500 bg-white/5 border-white/10 rounded focus:ring-blue-500"
                 />
                 <span className="ml-2 text-sm text-gray-300">Remember me</span>
               </label>
@@ -90,9 +93,10 @@ export default function LoginPage() {
 
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              disabled={isLoading}
+              className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Sign In
+              {isLoading ? "Signing in..." : "Sign In"}
             </button>
           </form>
 
@@ -103,7 +107,7 @@ export default function LoginPage() {
                 href="/signup"
                 className="text-blue-400 hover:text-blue-300 font-medium transition-colors duration-300"
               >
-                Sign up
+                Sign up for free
               </Link>
             </p>
           </div>

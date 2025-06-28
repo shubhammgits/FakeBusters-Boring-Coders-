@@ -37,7 +37,7 @@ export default function ContactPage() {
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Touch</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Have questions about our products or need support? We're here to help.
+            Have questions about FakeBuster or need support? We're here to help protect you from deepfakes.
           </p>
         </motion.div>
 
@@ -57,7 +57,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-white font-semibold">Email</h3>
-                    <p className="text-gray-300">support@copyleaks.com</p>
+                    <p className="text-gray-300">support@fakebuster.ai</p>
                   </div>
                 </div>
 
@@ -67,7 +67,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-white font-semibold">Phone</h3>
-                    <p className="text-gray-300">+1 (555) 123-4567</p>
+                    <p className="text-gray-300">+91 (11) 2345-6789</p>
                   </div>
                 </div>
 
@@ -76,22 +76,22 @@ export default function ContactPage() {
                     <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold">Address</h3>
+                    <h3 className="text-white font-semibold">Location</h3>
                     <p className="text-gray-300">
-                      123 Innovation Drive
+                      Based in New Delhi, India
                       <br />
-                      Tech City, TC 12345
+                      (Global-ready)
                     </p>
                   </div>
                 </div>
               </div>
 
               <div className="mt-8 pt-8 border-t border-white/10">
-                <h3 className="text-white font-semibold mb-4">Business Hours</h3>
+                <h3 className="text-white font-semibold mb-4">Response Time</h3>
                 <div className="space-y-2 text-gray-300">
-                  <p>Monday - Friday: 9:00 AM - 6:00 PM EST</p>
-                  <p>Saturday: 10:00 AM - 4:00 PM EST</p>
-                  <p>Sunday: Closed</p>
+                  <p>We usually respond within 24 hours</p>
+                  <p>Enterprise customers: Priority support available</p>
+                  <p>Emergency deepfake alerts: Immediate response</p>
                 </div>
               </div>
             </div>
@@ -161,7 +161,7 @@ export default function ContactPage() {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     rows={6}
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none"
-                    placeholder="Your message"
+                    placeholder="Tell us how we can help you with deepfake detection..."
                     required
                   />
                 </div>

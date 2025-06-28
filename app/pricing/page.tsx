@@ -6,48 +6,49 @@ import { useState } from "react"
 
 const plans = [
   {
-    name: "Starter",
-    price: { monthly: 9.99, yearly: 99.99 },
-    description: "Perfect for individuals and small teams",
+    name: "Free",
+    price: { monthly: 0, yearly: 0 },
+    currency: "₹",
+    description: "Perfect for personal use and trying out FakeBuster",
     features: [
-      "100 pages per month",
-      "AI content detection",
-      "Basic plagiarism check",
+      "10 uploads per month",
+      "Image detection",
+      "Basic confidence scoring",
       "Email support",
-      "Chrome extension",
-      "API access (limited)",
+      "No login required",
     ],
     popular: false,
   },
   {
-    name: "Professional",
-    price: { monthly: 19.99, yearly: 199.99 },
-    description: "Ideal for content creators and educators",
+    name: "Pro",
+    price: { monthly: 199, yearly: 1990 },
+    currency: "₹",
+    description: "Ideal for professionals and content creators",
     features: [
-      "500 pages per month",
-      "Advanced AI detection",
-      "Full plagiarism database",
+      "500 uploads per month",
+      "Image + Video detection",
+      "Metadata analysis",
+      "Explainable AI reports",
       "Priority support",
-      "Team collaboration",
-      "Custom integrations",
-      "Detailed reports",
-      "Bulk processing",
+      "API access",
+      "Advanced analytics",
     ],
     popular: true,
   },
   {
     name: "Enterprise",
-    price: { monthly: 49.99, yearly: 499.99 },
-    description: "For large organizations and institutions",
+    price: { monthly: "Custom", yearly: "Custom" },
+    currency: "",
+    description: "For organizations and large-scale operations",
     features: [
-      "Unlimited pages",
+      "Unlimited uploads",
+      "Custom integrations",
       "White-label solution",
-      "Custom AI models",
       "Dedicated support",
-      "Advanced analytics",
-      "SSO integration",
-      "Custom workflows",
       "SLA guarantee",
+      "Custom AI models",
+      "Team management",
+      "Advanced reporting",
     ],
     popular: false,
   },
@@ -70,7 +71,7 @@ export default function PricingPage() {
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Pricing</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            Choose the perfect plan for your content integrity needs
+            Choose the perfect plan for your deepfake detection needs
           </p>
 
           <div className="flex items-center justify-center space-x-4">
@@ -123,9 +124,16 @@ export default function PricingPage() {
 
                 <div className="mb-8">
                   <span className="text-4xl font-extrabold text-white">
-                    ${isYearly ? plan.price.yearly : plan.price.monthly}
+                    {plan.currency}
+                    {typeof plan.price.monthly === "number" && isYearly
+                      ? plan.price.yearly
+                      : typeof plan.price.monthly === "number"
+                        ? plan.price.monthly
+                        : plan.price.monthly}
                   </span>
-                  <span className="text-gray-400 ml-2">/{isYearly ? "year" : "month"}</span>
+                  {typeof plan.price.monthly === "number" && (
+                    <span className="text-gray-400 ml-2">/{isYearly ? "year" : "month"}</span>
+                  )}
                 </div>
 
                 <ul className="space-y-4 mb-8">
@@ -144,7 +152,7 @@ export default function PricingPage() {
                       : "bg-white/10 hover:bg-white/20 text-white border border-white/20"
                   }`}
                 >
-                  Get Started
+                  {plan.name === "Enterprise" ? "Contact Sales" : "Get Started"}
                 </button>
               </div>
             </motion.div>
@@ -157,7 +165,7 @@ export default function PricingPage() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-center mt-16"
         >
-          <p className="text-gray-300 mb-4">Need a custom solution?</p>
+          <p className="text-gray-300 mb-4">Educational and NGO discounts available upon request</p>
           <button className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
             Contact Sales
           </button>
