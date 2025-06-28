@@ -8,9 +8,10 @@ import Footer from "@/components/footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Copyleaks - AI Content Detection & Plagiarism Checker",
+  title: "FakeBuster - Your AI Shield Against Deepfakes",
   description:
-    "Advanced AI-powered content detection and plagiarism checking platform. Protect your content integrity with 99.12% accuracy.",
+    "Detect fake images and videos instantly with advanced AI technology. Protect yourself from deepfakes, scams, and manipulated content.",
+  keywords: "deepfake detection, AI detection, fake video detector, image verification, content authenticity",
     generator: 'v0.dev'
 }
 

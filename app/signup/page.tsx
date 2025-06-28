@@ -8,33 +8,40 @@ import { useState } from "react"
 import Link from "next/link"
 
 export default function SignupPage() {
-  const [showPassword, setShowPassword] = useState(false)
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
     confirmPassword: "",
   })
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle signup logic here
+    if (formData.password !== formData.confirmPassword) {
+      alert("Passwords don't match!")
+      return
+    }
+    setIsLoading(true)
+    // Handle signup
     console.log("Signup attempt:", formData)
+    setTimeout(() => setIsLoading(false), 2000)
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center px-4 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         className="w-full max-w-md"
       >
-        <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-8 shadow-2xl">
+        <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-8">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-extrabold text-white mb-2">Create Account</h1>
-            <p className="text-gray-300">Join thousands of users protecting content integrity</p>
+            <h1 className="text-3xl font-extrabold text-white mb-2">Join FakeBuster</h1>
+            <p className="text-gray-300">Start protecting yourself from deepfakes today</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -54,7 +61,7 @@ export default function SignupPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+              <label className="block text-sm font-medium text-gray-300 mb-2">Email</label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                 <input
@@ -112,10 +119,10 @@ export default function SignupPage() {
               </div>
             </div>
 
-            <div className="flex items-start">
+            <div className="flex items-center">
               <input
                 type="checkbox"
-                className="w-4 h-4 text-blue-500 bg-white/5 border border-white/10 rounded focus:ring-blue-500 focus:ring-2 mt-1"
+                className="w-4 h-4 text-blue-500 bg-white/5 border-white/10 rounded focus:ring-blue-500"
                 required
               />
               <span className="ml-2 text-sm text-gray-300">
@@ -132,9 +139,10 @@ export default function SignupPage() {
 
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              disabled={isLoading}
+              className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Create Account
+              {isLoading ? "Creating account..." : "Create Account"}
             </button>
           </form>
 

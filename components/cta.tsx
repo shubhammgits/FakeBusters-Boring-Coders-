@@ -31,12 +31,14 @@ export default function CTA() {
           className="backdrop-blur-xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-3xl p-12"
         >
           <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6">
-            Ready to Protect Your{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Content?</span>
+            Ready to Protect Yourself from{" "}
+            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              Deepfakes?
+            </span>
           </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Join millions of users who trust Copyleaks to maintain content integrity. Start your free trial today and
-            experience the difference.
+            Join thousands of users who trust FakeBuster to detect fake content. Start protecting yourself and your
+            loved ones from deepfake scams today.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
@@ -44,7 +46,7 @@ export default function CTA() {
               href="/signup"
               className="group bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl flex items-center"
             >
-              Start Free Trial
+              Try FakeBuster Free
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
 
@@ -57,7 +59,7 @@ export default function CTA() {
           </div>
 
           <div className="border-t border-white/10 pt-8">
-            <p className="text-gray-400 mb-4">Stay updated with the latest in content integrity</p>
+            <p className="text-gray-400 mb-4">Be the first to know when real-time detection goes live</p>
 
             {isSubscribed && (
               <motion.div
