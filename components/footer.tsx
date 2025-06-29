@@ -71,17 +71,7 @@ export default function Footer() {
           <p className="text-gray-400 text-sm">
             © 2025 FakeBuster. All rights reserved. Protecting India from deepfakes by Boring Coders
           </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-              Twitter
-            </Link>
-            <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-              LinkedIn
-            </Link>
-            <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-              GitHub
-            </Link>
-          </div>
+          
         </div>
       </div>
     </footer>

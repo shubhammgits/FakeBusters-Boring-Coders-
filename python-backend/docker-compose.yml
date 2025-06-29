@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  fakebuster-backend:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./models:/app/models
+      - ./datasets:/app/datasets
+      - ~/.kaggle:/root/.kaggle:ro
+    environment:
+      - FLASK_ENV=development
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped

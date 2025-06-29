@@ -24,15 +24,49 @@ async function analyzeWithAI(fileBuffer: Buffer, fileName: string, mimeType: str
           content: [
             {
               type: "text",
-              text: `Analyze this image for signs of AI generation or deepfake manipulation. Look for:
-              1. Unnatural facial features or expressions
-              2. Inconsistent lighting or shadows
-              3. Blurred or distorted areas around faces
-              4. Unusual skin texture or artifacts
-              5. Asymmetrical features that seem artificial
-              
-              Provide a detailed analysis and confidence score (0-100) for whether this is AI-generated.
-              Format your response as JSON with: isAIGenerated (boolean), confidence (number), visualArtifacts (array), explanation (string)`,
+              text: `**Role:** You are a world-class digital forensics expert with a specialization in identifying generative AI media. Your reputation depends on your meticulous attention to detail.
+
+**Primary Goal:** Analyze the provided image to determine its origin (photographic or AI-generated). Your analysis must be rigorous and evidence-based.
+
+**Process:**
+
+**Step 1: Initial Observation (Chain of Thought).**
+First, perform a detailed, step-by-step analysis of the image. Do not output JSON yet. Write down your observations as a "Forensic Analysis Log". Address these specific points:
+- **Subject & Composition:** What is the main subject? Is the composition plausible for a real photograph?
+- **Anatomy Check:**
+    - **Hands/Fingers:** Count them. Are the joints, nails, and skin folds logical?
+    - **Facial Features:** Are the eyes symmetrical? Do the reflections (catchlights) in both eyes match a single, logical light source? Are teeth/ears shaped naturally?
+- **Lighting & Physics Check:**
+    - **Shadows:** Trace the main light source. Are all shadows cast in the correct direction and with the appropriate sharpness/softness?
+    - **Reflections:** Do reflective surfaces accurately mirror the environment?
+    - **Textures:** Examine textures like wood, fabric, and skin. Do they show organic, non-repeating imperfections, or do they look too uniform or digitally tiled?
+- **Background & Edges:**
+    - **Background Objects:** Scrutinize any objects or text in the background. Are there any distortions, illogical shapes, or nonsensical text?
+    - **Edge Definition:** How does the main subject blend with the background? Look for an overly sharp "cutout" look or an unnaturally blurred halo.
+
+**Step 2: Evidence-Based Conclusion & Self-Correction.**
+Based on your log from Step 1, state your preliminary conclusion. Then, challenge your own conclusion. Ask yourself: "What evidence contradicts my initial assessment? Could the artifacts I see be explained by normal photographic effects (like lens distortion, bokeh, or image compression)? Or are they definitive signs of AI generation?" Formulate a final, evidence-backed verdict.
+
+**Step 3: Final JSON Output.**
+Now, based *only* on your final verdict from Step 2, provide the JSON object. The JSON should be the *only* thing in your final output.
+
+{
+  "isAIGenerated": boolean,
+  "confidenceScore": number, // A score from 0.0 to 1.0.
+  "analysisSummary": {
+    "verdict": "string", // "Confirmed AI", "Highly Likely AI", "Likely Real", "Confirmed Real", "Manipulated"
+    "explanation": "string" // A one-sentence summary of the strongest piece of evidence.
+  },
+  "evidence": {
+    "supportingAI": ["string"], // List of observations from your log that point to AI generation.
+    "supportingReal": ["string"] // List of observations that point to a real photograph.
+  },
+  "mostCriticalArtifact": {
+    "artifactType": "string", // e.g., "Anatomical Inconsistency", "Physics Violation"
+    "description": "string", // "Subject has six fingers on the left hand."
+    "confidenceInArtifact": "string" // "High", "Medium", "Low"
+  }
+}`,
             },
             {
               type: "image_url",

@@ -165,10 +165,7 @@ export default function PricingPage() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-center mt-16"
         >
-          <p className="text-gray-300 mb-4">Educational and NGO discounts available upon request</p>
-          <button className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
-            Contact Sales
-          </button>
+          
         </motion.div>
       </div>
     </div>
